@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# All-in-One: Personal Organization Application
 
-## Getting Started
+All-in-One is a personal organization application designed to simplify your daily life. Combining multiple tools like task management, goal tracking, habit monitoring, and more, it empowers you to stay organized and focused in one unified platform.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### For General Use
+- **Task Manager**: Organize and prioritize your to-dos.
+- **Goal Planner**: Set and track your short- and long-term goals.
+- **Habit Tracker**: Build and maintain healthy habits.
+- **Expense Tracker**: Manage your daily expenses effortlessly.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### For Students
+- **Study Planner**: Plan and organize study sessions.
+- **Assignment Tracker**: Keep track of deadlines and assignments.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### For Professionals
+- **Meeting Scheduler**: Organize and monitor your meetings.
+- **Workload Tracker**: Track ongoing projects and their progress.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technologies Used
 
-## Learn More
+This project is built using modern and efficient technologies:
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: [Next.js](https://nextjs.org/) with **TypeScript**
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Backend**: [Node.js](https://nodejs.org/) with **Prisma ORM**
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Follow these steps to set up the project locally:
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/all-in-one.git
+   cd all-in-one
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Set up the environment variables:
+   Create a `.env` file in the root directory and configure your database credentials.
+
+4. Run database migrations:
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+Visit `http://localhost:3000` to see the application in action.
+
+## Contribution
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+Created by Gabriel and Thiago. If you’re interested in collaborating or have any inquiries, feel free to connect:
+
+### Gabriel
+- **GitHub**: [github.com/bielnascf](https://github.com/bielnascf)
+- **LinkedIn**:[https://linkedin.com/in/gabriel-nascimento](https://www.linkedin.com/in/gabriel-nascimento-484450255/)
+
+### Thiago
+- **GitHub**: [github.com/ThiagoBR109](https://github.com/ThiagoBR109)
+- **LinkedIn**: [https://linkedin.com/in/thiago-macieira](https://www.linkedin.com/in/thiago-macieira-061348273/)
+
+---
+Elevate your personal organization with All-in-One!
