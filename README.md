@@ -2,6 +2,8 @@
 
 All-in-One is a daily organization application designed to streamline your life with six powerful features, combining simplicity, efficiency, and flexibility in a single platform. Built with cutting-edge technologies, this project is both a practical tool and a showcase of modern web development practices.
 
+### Figma --> [All-in-One Project](https://www.figma.com/design/sW31GZP1EbSszLkEVbIAcA/Help-me-to-Help-you?node-id=0-1&t=kjqypgsJUUC2cnlW-1)
+
 ## Features
 
 ### 🌟 Task Planner
