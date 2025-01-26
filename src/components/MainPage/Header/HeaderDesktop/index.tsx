@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -17,7 +17,7 @@ export default function HeaderDesktop() {
   return (
     <header
       className={`hidden md:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
-        isScrolled ? "bg-[#151515]" : "bg-transparent"
+        isScrolled ? "bg-[#09090b]" : "bg-transparent"
       }`}
     >
       <div className="max-w-[1440px] mx-auto flex justify-between w-full items-center xl:px-5 sm:px-10">
@@ -30,7 +30,7 @@ export default function HeaderDesktop() {
           <nav>
             <ul className="flex gap-12 md:text-sm lg:text-base">
               <li>
-                <Link href="#home" className="relative group">
+                <Link href="/" className="relative group">
                   <span className="transition duration-300">Home</span>
                   <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
                 </Link>

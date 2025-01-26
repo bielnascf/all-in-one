@@ -26,7 +26,7 @@ export default function HeaderMobile() {
   }, []);
   return (
     <header className={`md:hidden fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-[#151515]" : "bg-transparent"
+        isScrolled ? "bg-[#09090b]" : "bg-transparent"
       }`}>
       <Sheet>
         <SheetTrigger asChild>
