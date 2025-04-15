@@ -5,7 +5,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="h-full md:py-20 px-6 sm:p-0 flex flex-col justify-center items-center"
+      className="h-screen md:py-20 px-6 sm:p-0 flex flex-col justify-center items-center"
     >
       <div className="flex flex-col gap-24 mb-16 lg:mb-0">
         <div>
