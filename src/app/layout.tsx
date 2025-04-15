@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/MainPage/Header";
+import Header from "@/components/Header";
 import Gradient from "@/components/Gradient";
+import { ThemeProvider } from "@/components/Providers/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,11 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth scrollbar" lang="en">
-      <body className={`h-screen max-w-[1440px] mx-auto ${inter.className} dark`}>
+    <html className="scroll-smooth scrollbar dark" lang="en" suppressHydrationWarning>
+      <body className={`${inter.className}`}>
+        <ThemeProvider>
           <Gradient />
-          <Header />    
-          {children}
+          <div className="max-w-[1440px] mx-auto">
+            <Header />
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
