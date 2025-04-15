@@ -3,6 +3,7 @@ import ContactUsSection from "./ContactUsSection";
 import FeaturesSection from "./FeaturesSection";
 import FooterSection from "./FooterSection";
 import HomeSection from "./HomeSection";
+import TechStackSection from "./TechStackSection";
 
 export default function MainPage() {
   return (
@@ -10,6 +11,7 @@ export default function MainPage() {
       <HomeSection />
       <FeaturesSection />
       <AboutSection />
+      <TechStackSection />
       <ContactUsSection />
       <FooterSection />
     </>
