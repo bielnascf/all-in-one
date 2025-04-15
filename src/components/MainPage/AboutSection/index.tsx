@@ -8,7 +8,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="sm:py-24 py-32 flex flex-col items-center justify-center"
+      className="sm:pt-24 pt-32 flex flex-col items-center justify-center"
     >
       <div className="sm:text-center text-justify sm:px-32 px-8">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-6">
