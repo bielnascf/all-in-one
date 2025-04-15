@@ -8,7 +8,7 @@ import DearDiaryIcon from "@/components/Icons/DearDiaryIcon";
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className="md:py-24 px-10">
+    <section id="features" className="md:pt-24 px-10">
       <div>
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-center mb-6">
