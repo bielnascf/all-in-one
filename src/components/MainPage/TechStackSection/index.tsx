@@ -94,7 +94,7 @@ const technologies = [
 
 export default function TechStackSection() {
   return (
-    <section id="techStack" className="pt-24 px-10 bg-[#0a0a0a] text-white">
+    <section id="techStack" className="pt-24 pb-24 md:pb-0 px-10 bg-[#0a0a0a] text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
         <span className="text-primary">Tech</span> Stack
       </h2>

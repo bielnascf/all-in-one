@@ -1,3 +1,78 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
 export default function FooterSection() {
-  return <footer></footer>;
+  const { toast } = useToast();
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <footer className="bg-[#0a0a0a] border-t border-[#1f1f1f] text-gray-400 py-12 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col gap-2 text-sm">
+          <p>
+            Built with <span className="text-white font-medium">Next.js</span>,{" "}
+            <span className="text-white font-medium">TypeScript</span>, and
+            zombie nights 🛌😵
+          </p>
+          <p className="text-xs text-gray-500">
+            © {new Date().getFullYear()} Gabriel Nascimento
+          </p>
+          <p className="text-xs text-gray-500">Current time: {currentTime}</p>
+        </div>
+        <div className="flex flex-col gap-3 text-sm">
+          <p className="text-white font-medium">Subscribe to the newsletter</p>
+          <div className="flex gap-2">
+            <Input
+              placeholder="your@email.com"
+              className="bg-[#1c1c1e] text-white placeholder:text-gray-500"
+            />
+            <Button
+              variant="secondary"
+              onClick={() => {
+                toast({
+                  title: "Subscribed!",
+                  description:
+                    "You have successfully subscribed to the newsletter.",
+                  duration: 4000,
+                });
+              }}
+            >
+              Join
+            </Button>
+          </div>
+          <p className="text-xs text-gray-500">No spam. Unsubscribe anytime.</p>
+        </div>
+        <p className="text-xs text-gray-500 mt-6">
+          This project is part of my personal portfolio to demonstrate skills in
+          <br />full-stack web development using modern technologies.
+        </p>
+      </div>
+      <div className="text-center mt-8 text-xs text-gray-500 italic">
+        Open to collaboration and freelance opportunities.
+      </div>
+    </footer>
+  );
 }

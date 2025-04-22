@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Gradient from "@/components/Gradient";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,6 +29,7 @@ export default function RootLayout({
           <div className="max-w-[1440px] mx-auto">
             <Header />
             {children}
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>
