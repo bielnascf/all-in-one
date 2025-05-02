@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function HeaderDesktop() {
   const pathname = usePathname();
-  const isContactPage = pathname == "/contact";
+  const isAuthPageOrContactPage = pathname == "/Login" || pathname == "/SignUp" || pathname == "/contact";
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -34,46 +34,43 @@ export default function HeaderDesktop() {
             <span className="text-primary">O</span>
           </div>
         </Link>
-
-        {/* Só mostra o menu se não estiver na página /contact */}
-        {!isContactPage && (
-          <nav>
-            <ul className="flex gap-12 md:text-sm lg:text-base">
-              <li>
-                <Link href="/" className="relative group">
-                  <span className="transition duration-300">Home</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="#features" className="relative group">
-                  <span className="transition duration-300">Features</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="relative group">
-                  <span className="transition duration-300">About</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="#techStack" className="relative group">
-                  <span className="transition duration-300">Tech Stack</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
-                </Link>
-              </li>
-              <li>
-                <Link href="#contactUs" className="relative group">
-                  <span className="transition duration-300">Contact Us</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
-
-        <div className="flex gap-4">
+        {!isAuthPageOrContactPage && (
+          <>
+            <nav>
+              <ul className="flex gap-12 md:text-sm lg:text-base">
+                <li>
+                  <Link href="/" className="relative group">
+                    <span className="transition duration-300">Home</span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#features" className="relative group">
+                    <span className="transition duration-300">Features</span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#about" className="relative group">
+                    <span className="transition duration-300">About</span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#techStack" className="relative group">
+                    <span className="transition duration-300">Tech Stack</span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#contactUs" className="relative group">
+                    <span className="transition duration-300">Contact Us</span>
+                    <span className="absolute left-0 -bottom-1 w-0 h-[0.025rem] bg-[#3EAC91] transition-all duration-300 group-hover:w-10/12"></span>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="flex gap-4">
           <Link
             href="#"
             className="bg-secondary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 rounded-xl text-center hover:opacity-80 border border-primary md:px-3 md:py-2 sm:py-2 sm:px-2"
@@ -87,6 +84,8 @@ export default function HeaderDesktop() {
             Sign Up
           </Link>
         </div>
+          </>
+        )}
       </div>
     </header>
   );
