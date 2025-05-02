@@ -43,7 +43,7 @@ export default function FooterSection() {
           <p className="text-xs text-gray-500">Current time: {currentTime}</p>
         </div>
         <div className="flex flex-col gap-3 text-sm">
-          <p className="text-white font-medium">Subscribe to the newsletter</p>
+          <p className="text-white font-medium">Want to join our community on Discord?</p>
           <div className="flex gap-2">
             <Input
               placeholder="your@email.com"

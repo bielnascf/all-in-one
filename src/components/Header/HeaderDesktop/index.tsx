@@ -22,7 +22,7 @@ export default function HeaderDesktop() {
   }, []);
   return (
     <header
-      className={`hidden md:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
+      className={`hidden lg:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
         isScrolled ? "bg-[#09090b]" : "bg-transparent"
       }`}
     >
@@ -36,7 +36,7 @@ export default function HeaderDesktop() {
         </Link>
         {!isAuthPageOrContactPage && (
           <>
-            <nav>
+            <nav className="xl:ms-36 md:ms-16">
               <ul className="flex gap-12 md:text-sm lg:text-base">
                 <li>
                   <Link href="/" className="relative group">
