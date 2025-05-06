@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 export default function HeaderDesktop() {
@@ -9,20 +9,27 @@ export default function HeaderDesktop() {
   const isContactPage = pathname == "/contact";
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  useLayoutEffect(() => {
+    useEffect(() => {
+      setMounted(true);
+    }, [])
+  
+  useEffect(() => {
+    if(!mounted) return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-
-    window.addEventListener("scroll", handleScroll);
     handleScroll();
 
+    window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [mounted]);
   return (
     <header
-      className={`hidden md:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
+      className={`hidden lg:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
         isScrolled ? "bg-[#09090b]" : "bg-transparent"
       }`}
     >
@@ -34,8 +41,6 @@ export default function HeaderDesktop() {
             <span className="text-primary">O</span>
           </div>
         </Link>
-
-        {/* Só mostra o menu se não estiver na página /contact */}
         {!isContactPage && (
           <nav>
             <ul className="flex gap-12 md:text-sm lg:text-base">
