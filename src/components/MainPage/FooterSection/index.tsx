@@ -29,7 +29,7 @@ export default function FooterSection() {
   }, []);
 
   return (
-    <footer className="bg-[#0a0a0a] border-t border-[#1f1f1f] text-gray-400 py-12 px-6">
+    <footer className="border-t border-[#1f1f1f] text-gray-400 py-12 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex flex-col gap-2 text-sm">
           <p>
@@ -53,9 +53,9 @@ export default function FooterSection() {
               variant="secondary"
               onClick={() => {
                 toast({
-                  title: "Subscribed!",
+                  title: "✔️ Verify your email!",
                   description:
-                    "You have successfully subscribed to the newsletter.",
+                    "We send a magic link to join our discord server.",
                   duration: 4000,
                 });
               }}

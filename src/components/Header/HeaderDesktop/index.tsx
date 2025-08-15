@@ -1,32 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useRouter } from "next/navigation";
 
 export default function HeaderDesktop() {
   const pathname = usePathname();
-  const isAuthPageOrContactPage = pathname == "/Login" || pathname == "/SignUp" || pathname == "/contact";
+  const isContactPage = pathname == "/contact"
+  const isAuthPageOrDashboardPage = pathname == "/dashboard" || pathname == "/auth";
+  const isScrolled = useScrollPosition();
+  const router = useRouter();
 
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  if(isAuthPageOrDashboardPage) {
+    return null;
+  }
 
-    useEffect(() => {
-      setMounted(true);
-    }, [])
-  
-  useEffect(() => {
-    if(!mounted) return;
-
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [mounted]);
   return (
     <header
       className={`hidden lg:flex fixed top-0 left-0 w-full z-50 py-5 transition-colors duration-300 ${
@@ -41,7 +30,7 @@ export default function HeaderDesktop() {
             <span className="text-primary">O</span>
           </div>
         </Link>
-        {!isAuthPageOrContactPage && (
+        {!isContactPage && (
           <>
             <nav className="xl:ms-36 md:ms-16">
               <ul className="flex gap-12 md:text-sm lg:text-base">
@@ -78,19 +67,19 @@ export default function HeaderDesktop() {
               </ul>
             </nav>
             <div className="flex gap-4">
-          <Link
-            href="#"
-            className="bg-secondary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 rounded-xl text-center hover:opacity-80 border border-primary md:px-3 md:py-2 sm:py-2 sm:px-2"
-          >
-            Login
-          </Link>
-          <Link
-            href="#"
-            className="bg-primary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 md:px-3 md:py-2 sm:py-2 sm:px-2 rounded-xl text-center hover:opacity-80"
-          >
-            Sign Up
-          </Link>
-        </div>
+              <button
+                onClick={() => router.push("/auth?tab=login")}
+                className="bg-secondary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 rounded-xl text-center hover:opacity-80 border border-primary md:px-3 md:py-2 sm:py-2 sm:px-2"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => router.push("/auth?tab=signup")}
+                className="bg-primary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 md:px-3 md:py-2 sm:py-2 sm:px-2 rounded-xl text-center hover:opacity-80"
+              >
+                Sign Up
+              </button>
+            </div>
           </>
         )}
       </div>

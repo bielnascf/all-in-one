@@ -85,7 +85,7 @@ export default function FormContactSection() {
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Ex: John Doe" {...register("name")} />
+            <Input id="name" className="focus-visible:ring-primary" placeholder="Ex: John Doe" {...register("name")} />
             {errors.name && (
               <p className="m-0 p-0 text-sm text-red-500">
                 {errors.name.message}
@@ -97,6 +97,7 @@ export default function FormContactSection() {
             <Input
               type="email"
               id="email"
+              className="focus-visible:ring-primary"
               placeholder="Ex: johndoe@email.com"
               {...register("email")}
             />
@@ -154,6 +155,7 @@ export default function FormContactSection() {
               id="suggestion"
               rows={9}
               placeholder="Type here..."
+              className="focus-visible:ring-primary"
               {...register("suggestion")}
             />
             {errors.suggestion && (

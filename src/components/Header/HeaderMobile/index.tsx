@@ -6,25 +6,33 @@ import {
   SheetTrigger,
   SheetContent,
   SheetTitle,
-  SheetFooter,
   SheetHeader,
 } from "../../ui/sheet";
 import { Button } from "../../ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 export default function HeaderMobile() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isAuthPageOrDashboardPage = pathname == "/dashboard" || pathname == "/auth";
 
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if(isAuthPageOrDashboardPage) {
+    return null;
+  }
+  
   return (
     <header
       className={`lg:hidden fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
@@ -51,14 +59,14 @@ export default function HeaderMobile() {
             </SheetHeader>
             <div className="flex flex-col gap-4">
               <Link
-                href="#"
+                href="/auth"
                 className="flex justify-center items-center gap-2 bg-secondary dark:text-white text-background p-3 rounded-xl text-center hover:opacity-80 transition-all duration-300"
               >
                 <LogIn size={18} />
                 Login
               </Link>
               <Link
-                href="#"
+                href="/auth?tab=signup"
                 className="flex justify-center items-center gap-2 bg-primary dark:text-white text-background p-3 rounded-xl text-center hover:opacity-80 transition-all duration-300"
               >
                 Sign Up
@@ -76,15 +84,17 @@ export default function HeaderMobile() {
               </Link>
             </div>
           </div>
-          <SheetFooter>
+          <div>
             <Link href="/">
-              <div className="text-3xl text-center pb-24">
-                <span className="text-primary">A</span>
-                <span className="text-white">I</span>
-                <span className="text-primary">O</span>
+              <div className="w-full flex justify-center">
+                <div className="text-3xl pb-24">
+                  <span className="text-primary">A</span>
+                  <span className="text-white">I</span>
+                  <span className="text-primary">O</span>
+                </div>
               </div>
             </Link>
-          </SheetFooter>
+          </div>
         </SheetContent>
       </Sheet>
     </header>

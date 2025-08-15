@@ -18,12 +18,12 @@ const categoryColors: Record<string, string> = {
   Framework: "bg-blue-600 text-white",
   Authentication: "bg-green-600 text-white",
   ORM: "bg-purple-600 text-white",
-  Database: "bg-yellow-600 text-white",
+  Intelligence: "bg-yellow-600 text-white",
   UI: "bg-pink-600 text-white",
   Styling: "bg-indigo-600 text-white",
   Validation: "bg-red-600 text-white",
   Language: "bg-gray-600 text-white",
-  Intelligence: "bg-teal-500 text-white",
+  Database: "bg-teal-500 text-white",
 };
 
 const technologies = [
@@ -35,7 +35,7 @@ const technologies = [
       "Used as the core framework for both frontend and backend, leveraging Server Components and API Routes.",
   },
   {
-    name: "NextAuth.js",
+    name: "Better Auth",
     category: "Authentication",
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
     description:
@@ -49,7 +49,7 @@ const technologies = [
       "Simplifies database access with a modern, type-safe ORM connected to PostgreSQL.",
   },
   {
-    name: "Supabase",
+    name: "Neon",
     category: "Database",
     icon: <Database className="w-6 h-6 text-white" />,
     description:
@@ -116,7 +116,7 @@ export default function TechStackSection() {
                 {tech.category}
               </Badge>
               <div className="flex items-start gap-4 mt-2">
-                <div className="bg-[#2a2a2d] p-2 rounded-full">{tech.icon}</div>
+                <div className="p-2 rounded-full">{tech.icon}</div>
                 <div>
                   <h3 className="text-lg font-semibold mb-1">{tech.name}</h3>
                   <p className="text-sm text-gray-300">{tech.description}</p>

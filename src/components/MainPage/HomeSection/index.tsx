@@ -21,7 +21,7 @@ export default function HomeSection() {
         </div>
         <div className="flex justify-center">
           <Link
-            href="#"
+            href="/auth"
             className="text-white flex gap-2 items-center py-3 px-10 bg-primary rounded-2xl hover:opacity-80 transition-all duration-300"
           >
             <MousePointerClick />

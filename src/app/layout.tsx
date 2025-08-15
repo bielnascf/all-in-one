@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Gradient from "@/components/Gradient";
-import { ThemeProvider } from "@/components/Providers/ThemeProvider";
+import { ThemeProvider } from "@/Providers/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
+import { ConditionalLayout } from "@/components/ConditionalLayout";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,7 +14,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "All-in-One",
-  description: "Simplify and organize your life with All-in-One: a personal organization app that brings together task management, financial tracking, study planning, quick notes, and an online diary",
+  description:
+    "Simplify and organize your life with All-in-One: a personal organization app that brings together task management, financial tracking, study planning, quick notes, and an online diary",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
@@ -22,15 +27,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth scrollbar dark" lang="en" suppressHydrationWarning>
+    <html
+      className="scroll-smooth scrollbar dark"
+      lang="en"
+      suppressHydrationWarning={true}
+    >
       <body className={`${inter.className}`}>
         <ThemeProvider>
           <Gradient />
-          <div className="max-w-[1440px] mx-auto">
+          <ConditionalLayout>
             <Header />
             {children}
             <Toaster />
-          </div>
+          </ConditionalLayout>
         </ThemeProvider>
       </body>
     </html>
