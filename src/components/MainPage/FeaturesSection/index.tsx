@@ -31,16 +31,19 @@ export default function FeaturesSection() {
             title="Task Planner"
             description="Create to-do lists and stay on top of your priorities"
             icon={TaskPlannerIcon}
+            fill="#3EAC91"
           />
           <CardFeature 
             title="MemoHelper"
             description="Stay logged in to securely access your saved passwords and details."
             icon={MemoHelperIcon}
+            fill="#3EAC91"
           />
           <CardFeature 
             title="CookBooker"
             description="Save, organize, and access your favorite recipes anytime."
             icon={CookBooker}
+            fill="#3EAC91"
           />
           <CardFeature 
             title="Routine Builder"
@@ -51,11 +54,13 @@ export default function FeaturesSection() {
             title="Financial Tracker"
             description="Monitor work-related expenses on the go."
             icon={FinancialTrackerIcon}
+            fill="#3EAC91"
           />
           <CardFeature 
             title="Dear Diary"
             description="Dear Diary – a secure space to record your thoughts and memories."
             icon={DearDiaryIcon}
+            fill="#3EAC91"
           />
         </div>
         <div className="text-center text-zinc-200 mt-12">

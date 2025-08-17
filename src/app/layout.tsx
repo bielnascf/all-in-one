@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Gradient from "@/components/Gradient";
 import { ThemeProvider } from "@/Providers/ThemeProvider";
-import { Toaster } from "@/components/ui/toaster";
+import Gradient from "@/components/Gradient";
 import { ConditionalLayout } from "@/components/ConditionalLayout";
+import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,9 +38,9 @@ export default function RootLayout({
           <ConditionalLayout>
             <Header />
             {children}
-            <Toaster />
           </ConditionalLayout>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
