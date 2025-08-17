@@ -30,14 +30,14 @@ Write and reflect on your day-to-day experiences with a private, secure diary fe
 - **Next.js 15**: A modern React framework for building fast, server-rendered applications.
 - **TypeScript**: Provides type safety and improves code quality.
 - **Prisma**: A next-generation ORM for seamless database interactions.
-- **Supabase (PostgreSQL)**: A powerful backend for authentication and data storage.
+- **Neondb (PostgreSQL)**: A powerful backend for authentication and data storage.
 
 ### UI and Styling
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 - **shadcn/ui**: A customizable and accessible UI component library.
 
 ### Authentication and Validation
-- **NextAuth.js**: Secure user authentication with providers like Google, GitHub, and credentials.
+- **Better Auth**: Secure user authentication with providers like Google, GitHub, and credentials.
 - **Zod**: A schema-based validation library for ensuring data integrity.
 
 ## License
