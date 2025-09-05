@@ -14,17 +14,26 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState } from "react";
+import { ImSpinner2 } from "react-icons/im";
 
 export default function Header() {
+  const [isLoading, setIsLoading] = useState<"login" | "signup" | null>(null);
   const pathname = usePathname();
   const isContactPage = pathname.startsWith("/contact");
-  const isAuthPageOrDashboardPage = pathname.startsWith("/dashboard") || pathname.startsWith("/auth");
+  const isAuthPageOrDashboardPage =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/auth");
   const isScrolled = useScrollPosition();
   const router = useRouter();
 
   if (isAuthPageOrDashboardPage) {
     return null;
   }
+
+  const handleClickAuthRoutes = (btn: "login" | "signup") => {
+    setIsLoading(btn);
+    router.push(`/auth?tab=${btn}`);
+  };
 
   return (
     <>
@@ -83,16 +92,26 @@ export default function Header() {
               </nav>
               <div className="flex gap-4">
                 <button
-                  onClick={() => router.push("/auth?tab=login")}
+                  value="login"
+                  onClick={() => handleClickAuthRoutes("login")}
                   className="bg-secondary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 rounded-xl text-center hover:opacity-80 border border-primary md:px-3 md:py-2 sm:py-2 sm:px-2"
                 >
-                  Login
+                  {isLoading === "login" ? (
+                    <ImSpinner2 className="animate-spin h-4 w-4" />
+                  ) : (
+                    "Login"
+                  )}
                 </button>
                 <button
-                  onClick={() => router.push("/auth?tab=signup")}
+                  value="signup"
+                  onClick={() => handleClickAuthRoutes("signup")}
                   className="bg-primary transition duration-300 dark:text-white text-background lg:px-5 lg:py-2 md:px-3 md:py-2 sm:py-2 sm:px-2 rounded-xl text-center hover:opacity-80"
                 >
-                  Sign Up
+                  {isLoading === "signup" ? (
+                    <ImSpinner2 className="animate-spin h-4 w-4" />
+                  ) : (
+                    "Sign Up"
+                  )}
                 </button>
               </div>
             </>
