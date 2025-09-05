@@ -1,12 +1,8 @@
-import { getServerSession } from "@/lib/getServerSession";
-import { redirect } from "next/navigation";
+import { protectRoute } from "@/lib/serverSession";
 
-export default function MemoHelp() {
-  const session = getServerSession();
-  
-  if(!session) {
-    redirect("/");
-  }
+
+export default async function MemoHelp() {
+  await protectRoute();
   return (
     <main className="sm:ml-14 py-4 px-8">
       <div className="border-b border-primary pb-2 mb-2">
