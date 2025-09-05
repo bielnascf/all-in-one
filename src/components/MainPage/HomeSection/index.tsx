@@ -1,7 +1,19 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
 import { MousePointerClick } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { ImSpinner8 } from "react-icons/im";
 
 export default function HomeSection() {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const handleClick = () => {
+    setIsLoading(true);
+    router.push("/auth");
+  };
   return (
     <section
       id="home"
@@ -20,13 +32,21 @@ export default function HomeSection() {
           </p>
         </div>
         <div className="flex justify-center">
-          <Link
-            href="/auth"
-            className="text-white flex gap-2 items-center py-3 px-10 bg-primary rounded-2xl hover:opacity-80 transition-all duration-300"
+          <Button
+            type="button"
+            className="text-white items-center py-6 px-10 bg-primary rounded-2xl hover:opacity-80 transition-all duration-300 shadow-lg shadow-primary/40"
+            disabled={isLoading}
+            onClick={handleClick}
           >
-            <MousePointerClick />
-            Get Started
-          </Link>
+            {isLoading ? (
+              <ImSpinner8 className="animate-spin" />
+            ) : (
+              <MousePointerClick />
+            )}
+            {isLoading
+              ? "Getting started..."
+              : "Get started"}
+          </Button>
         </div>
       </div>
     </section>

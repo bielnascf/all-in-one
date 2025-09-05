@@ -53,10 +53,9 @@ export default function FooterSection() {
               variant="secondary"
               onClick={() => {
                 toast({
-                  title: "✔️ Verify your email!",
-                  description:
-                    "We send a magic link to join our discord server.",
-                  duration: 4000,
+                  title: "⏳ Coming Soon...",
+                  description: "We are working this feature.",
+                  duration: 3000,
                 });
               }}
             >
