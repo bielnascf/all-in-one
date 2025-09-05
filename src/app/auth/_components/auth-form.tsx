@@ -27,6 +27,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
 import { authClient } from '../../../lib/auth-client';
+import { sign } from "crypto";
 
 type TabValue = "login" | "signup";
 
@@ -285,6 +286,7 @@ export default function AuthForm() {
                 disabled={loginForm.formState.isSubmitting}
                 className="w-full p-6 text-xl text-white hover:opacity-80 transition-all duration-300 flex items-center justify-center gap-2"
               >
+                {loginForm.formState.isSubmitting ? <ImSpinner8 className="animate-spin"/> : ""}
                 {loginForm.formState.isSubmitting ? "Logging in..." : "Login"}
               </Button>
             </CardFooter>
@@ -427,6 +429,7 @@ export default function AuthForm() {
                 disabled={signUpForm.formState.isSubmitting}
                 className="w-full p-6 text-xl text-white hover:opacity-80 transition-all duration-300 flex items-center justify-center gap-2"
               >
+                {signUpForm.formState.isSubmitting ? <ImSpinner8 className="animate-spin"/> : ""}
                 {signUpForm.formState.isSubmitting ? "Creating account..." : "Sign Up"}
               </Button>
             </CardFooter>
