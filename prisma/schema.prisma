@@ -18,6 +18,8 @@ model User {
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
+  tasks         Task[]
+  aiGeneratedBatches   AIGeneratedTasksBatch[]
 
   @@unique([email])
   @@map("user")
@@ -66,4 +68,32 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Task {
+  id          String      @id @default(uuid())
+  title       String
+  description String?
+  category    String
+  color       String
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  userId String
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("task")
+}
+
+model AIGeneratedTasksBatch {
+  id        String @id @default(cuid())
+  topic     String
+  tasksJson String
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
