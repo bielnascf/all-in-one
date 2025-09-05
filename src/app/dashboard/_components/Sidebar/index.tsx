@@ -13,7 +13,7 @@ import {
   SheetContent,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Grid2X2, PanelBottom, Settings2 } from "lucide-react";
+import { Grid2X2, Loader2Icon, PanelBottom, Settings2 } from "lucide-react";
 import Link from "next/link";
 import ButtonSignOut from "../ButtonSignOut";
 import {
@@ -24,10 +24,22 @@ import {
 } from "@/components/ui/tooltip";
 import ButtonSignOutDesktop from "../ButtonSignOutDesktop";
 import ButtonFullscreen from "../ButtonFullscreen";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
+  const router = useRouter();
   const pathname = usePathname();
+  const [loadingPath, setLoadingPath] = useState<string | null>(null);
+
+  useEffect(() => {
+    setLoadingPath(null);
+  }, [pathname]);
+
+  const handleClick = (path: string) => {
+    setLoadingPath(path);
+    router.push(path);
+  };
 
   const isActive = (path: string) => pathname === path;
 
@@ -50,13 +62,19 @@ export default function Sidebar() {
               </Link>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard"
+                    onClick={() => handleClick("/dashboard")}
                   >
-                    <Grid2X2 className={`h-5 w-5 transition-all ${isActive("/dashboard") ? "text-white" : "text-primary"}`} />
+                    {loadingPath === "/dashboard" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <Grid2X2
+                      className={`h-5 w-5 transition-all ${isActive("/dashboard") ? "text-white" : "text-primary"}`}
+                    />
+                    )}
                     <span className="sr-only">Overview</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   Overview
@@ -64,13 +82,19 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/taskPlanner") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/taskPlanner"
+                    onClick={() => handleClick("/dashboard/taskPlanner")}
                   >
-                    <TaskPlannerIcon className={`${isActive("/dashboard/taskPlanner") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
+                    {loadingPath === "/dashboard/taskPlanner" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <TaskPlannerIcon
+                        className={`${isActive("/dashboard/taskPlanner") ? "text-white" : "text-primary"} h-5 w-5`}
+                      />
+                    )}
                     <span className="sr-only">Task Planner</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   Task Planner
@@ -78,13 +102,19 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/financialTracker") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/financialTracker"
+                    onClick={() => handleClick("/dashboard/financialTracker")}
                   >
-                    <FinancialTrackerIcon className={`${isActive("/dashboard/financialTracker") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
+                    {loadingPath === "/dashboard/financialTracker" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <FinancialTrackerIcon
+                        className={`${isActive("/dashboard/financialTracker") ? "text-white" : "text-primary"} h-5 w-5`}
+                      />
+                    )}
                     <span className="sr-only">Financial Tracker</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   Financial Tracker
@@ -92,13 +122,18 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/cookBooker") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/cookBooker"
+                    onClick={() => handleClick("/dashboard/cookBooker")}
                   >
-                    <CookBooker className={`${isActive("/dashboard/cookBooker") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
-                    <span className="sr-only">Cook Booker</span>
-                  </Link>
+                    {loadingPath === "/dashboard/cookBooker" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <CookBooker
+                        className={`${isActive("/dashboard/cookBooker") ? "text-white" : "text-primary"} h-5 w-5`}
+                      />
+                    )}
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   CookBooker
@@ -106,13 +141,20 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/routineBuilder") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/routineBuilder"
+                    onClick={() => handleClick("/dashboard/routineBuilder")}
                   >
-                    <RoutineBuilderIcon className={`${isActive("/dashboard/routineBuilder") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} stroke={isActive("/dashboard/routineBuilder") ? "#FFF" : "#3EAC91"}/>
+                    {loadingPath === "/dashboard/routineBuilder" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <RoutineBuilderIcon
+                        className={`${isActive("/dashboard/routineBuilder") ? "text-white" : "text-primary"} h-5 w-5`}
+                        stroke={`${isActive("/dashboard/routineBuilder") ? "#fff" : "#3EAC91"}`}
+                      />
+                    )}
                     <span className="sr-only">Routine Builder</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   Routine Builder
@@ -120,13 +162,19 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/memoHelp") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/memoHelp"
+                    onClick={() => handleClick("/dashboard/memoHelp")}
                   >
-                    <MemoHelperIcon className={`${isActive("/dashboard/memoHelp") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
+                    {loadingPath === "/dashboard/memoHelp" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <MemoHelperIcon
+                        className={`${isActive("/dashboard/memoHelp") ? "text-white" : "text-primary"} h-5 w-5`}
+                      />
+                    )}
                     <span className="sr-only">Memo Helper</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   MemoHelp
@@ -134,13 +182,19 @@ export default function Sidebar() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
+                  <button
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/dearDiary") ? "bg-primary" : "bg-muted/40"}`}
-                    href="/dashboard/dearDiary"
+                    onClick={() => handleClick("/dashboard/dearDiary")}
                   >
-                    <DearDiaryIcon className={`${isActive("/dashboard/dearDiary") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
+                    {loadingPath === "/dashboard/dearDiary" ? (
+                      <Loader2Icon className="animate-spin h-5 w-5 text-white" />
+                    ) : (
+                      <DearDiaryIcon
+                        className={`${isActive("/dashboard/dearDiary") ? "text-white" : "text-primary"} h-5 w-5`}
+                      />
+                    )}
                     <span className="sr-only">Dear Diary</span>
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent side="right" className="text-white">
                   Dear Diary
@@ -158,7 +212,9 @@ export default function Sidebar() {
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors hover:text-white ${isActive("/dashboard/settings") ? "bg-primary" : "bg-muted/40"}`}
                     href="/dashboard/settings"
                   >
-                    <Settings2 className={`${isActive("/dashboard/settings") ? "text-white" : "text-primary"} h-5 w-5 transition-all`} />
+                    <Settings2
+                      className={`${isActive("/dashboard/settings") ? "text-white" : "text-primary"} h-5 w-5 transition-all`}
+                    />
                     <span className="sr-only">Settings</span>
                   </Link>
                 </TooltipTrigger>
@@ -211,7 +267,10 @@ export default function Sidebar() {
                   className="flex items-center gap-4 px-2.5 text-sm hover:text-zinc-200 font-normal"
                   prefetch={false}
                 >
-                  <TaskPlannerIcon className="h-5 w-5 transition-all" />
+                  <TaskPlannerIcon
+                    className="h-5 w-5 transition-all"
+                    fill="#3EAC91"
+                  />
                   Task Planner
                   <span className="sr-only">Task Planner</span>
                 </Link>
@@ -220,7 +279,10 @@ export default function Sidebar() {
                   className="flex items-center gap-4 px-2.5 text-sm hover:text-zinc-200 font-normal"
                   prefetch={false}
                 >
-                  <FinancialTrackerIcon className="h-5 w-5 transition-all" />
+                  <FinancialTrackerIcon
+                    className="h-5 w-5 transition-all"
+                    fill="#3EAC91"
+                  />
                   Financial Tracker
                   <span className="sr-only">Financial Tracker</span>
                 </Link>
@@ -229,7 +291,10 @@ export default function Sidebar() {
                   className="flex items-center gap-4 px-2.5 text-sm hover:text-zinc-200 font-normal"
                   prefetch={false}
                 >
-                  <CookBooker className="h-5 w-5 transition-all" />
+                  <CookBooker
+                    className="h-5 w-5 transition-all"
+                    fill="#3EAC91"
+                  />
                   CookBooker
                   <span className="sr-only">Cook Booker</span>
                 </Link>
@@ -247,7 +312,10 @@ export default function Sidebar() {
                   className="flex items-center gap-4 px-2.5 text-sm hover:text-zinc-200 font-normal"
                   prefetch={false}
                 >
-                  <MemoHelperIcon className="h-5 w-5 transition-all" />
+                  <MemoHelperIcon
+                    className="h-5 w-5 transition-all"
+                    fill="#3EAC91"
+                  />
                   MemoHelp
                   <span className="sr-only">Memo Helper</span>
                 </Link>
@@ -256,7 +324,10 @@ export default function Sidebar() {
                   className="flex items-center gap-4 px-2.5 text-sm hover:text-zinc-200 font-normal"
                   prefetch={false}
                 >
-                  <DearDiaryIcon className="h-5 w-5 transition-all" />
+                  <DearDiaryIcon
+                    className="h-5 w-5 transition-all"
+                    fill="#3EAC91"
+                  />
                   Dear Diary
                   <span className="sr-only">Dear Diary</span>
                 </Link>
