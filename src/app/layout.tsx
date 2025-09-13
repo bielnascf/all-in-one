@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ClientProviders } from "@/providers/ClientProviders";
+import ClientProviders from "@/Providers/ClientProviders";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,9 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className="scrollbar dark"
+      className="scrollbar dark scroll-smooth"
       lang="en"
-      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className={inter.className}>
