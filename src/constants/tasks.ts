@@ -1,4 +1,4 @@
-import { Task } from "@/interfaces/ITasks";
+import { Task } from "@/interfaces/ITaskPlanner";
 
 export const tasks : Task[] = [
   {
