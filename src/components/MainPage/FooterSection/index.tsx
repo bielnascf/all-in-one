@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function FooterSection() {
   const { toast } = useToast();
   const [currentTime, setCurrentTime] = useState("");
+  const date = new Date().getFullYear();
 
   useEffect(() => {
     const updateTime = () => {
@@ -38,7 +39,7 @@ export default function FooterSection() {
             zombie nights 🛌😵
           </p>
           <p className="text-xs text-gray-500">
-            © {new Date().getFullYear()} Gabriel Nascimento
+            © {date} Gabriel Nascimento
           </p>
           <p className="text-xs text-gray-500">Current time: {currentTime}</p>
         </div>
