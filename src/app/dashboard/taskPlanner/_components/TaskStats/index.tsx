@@ -1,6 +1,6 @@
 "use client";
 
-import { TaskStatsProps } from "@/interfaces/ITasks";
+import { TaskStatsProps } from "@/interfaces/ITaskPlanner";
 import { BadgeCheckIcon, ClipboardListIcon, HourglassIcon } from "lucide-react";
 
 export default function TaskStats({ total, completed, pending }: TaskStatsProps) {

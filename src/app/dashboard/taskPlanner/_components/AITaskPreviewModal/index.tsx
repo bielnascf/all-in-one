@@ -10,7 +10,7 @@ import WorkIcon from "@/components/Icons/Task/WorkIcon";
 import PersonalIcon from "@/components/Icons/Task/PersonalIcon";
 import HealthIcon from "@/components/Icons/Task/HealthIcon";
 import GoalIcon from "@/components/Icons/Task/GoalIcon"; 
-import { Task } from "@/interfaces/ITasks";
+import { Task } from "@/interfaces/ITaskPlanner";
 import { Loader2Icon, UploadIcon } from "lucide-react";
 
 export default function AITaskPreviewModal({

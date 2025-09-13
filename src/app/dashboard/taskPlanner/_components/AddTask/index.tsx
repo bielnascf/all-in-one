@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/drawer";
 import { PlusCircleIcon, SaveIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { AddTaskProps } from "@/interfaces/ITasks";
+import { AddTaskProps } from "@/interfaces/ITaskPlanner";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const MAX_TITLE_LENGTH = Number(process.env.NEXT_PUBLIC_MAX_TITLE_LENGTH);

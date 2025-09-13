@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { BadgeAlertIcon, BrainIcon, ListCheckIcon, TrashIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Task, TaskListProps } from "@/interfaces/ITasks";
+import { Task, TaskListProps } from "@/interfaces/ITaskPlanner";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTasks, useCreateTask, useDeleteTask, useUpdateTask } from "@/hooks/useTasks";
 import AddTask from "./../AddTask";
 import TaskList from "./../TasksList";
-import { Task } from "@/interfaces/ITasks";
+import { Task } from "@/interfaces/ITaskPlanner";
 import { useToast } from "@/hooks/use-toast";
 import TaskStats from "../TaskStats";
 

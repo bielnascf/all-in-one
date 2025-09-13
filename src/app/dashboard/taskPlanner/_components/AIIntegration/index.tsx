@@ -18,7 +18,7 @@ import { Loader2Icon, Trash2Icon } from "lucide-react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useGenerateTasks } from "@/hooks/useGenerateTasks";
 import AITaskPreviewModal from "../AITaskPreviewModal";
-import { Task } from "@/interfaces/ITasks";
+import { Task } from "@/interfaces/ITaskPlanner";
 import { useToast } from "@/hooks/use-toast";
 import {
   useDeleteAIBatch,
