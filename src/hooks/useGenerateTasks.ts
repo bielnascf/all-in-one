@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { generateTasks } from "@/lib/api/ai/task/ai";
-import { Task } from "@/interfaces/ITasks";
+import { generateTasks } from "@/lib/api/ai/taskPlanner/ai";
+import { Task } from "@/interfaces/ITaskPlanner";
 
 interface GenerateTasksOptions {
   onSuccess?: (data: Task[]) => void;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Task } from "@/interfaces/ITasks";
-import { apiCreateTask, apiDeleteTask, apiGetTasks, apiUpdateTask } from "@/lib/api/task/api";
+import { Task } from "@/interfaces/ITaskPlanner";
+import { apiCreateTask, apiDeleteTask, apiGetTasks, apiUpdateTask } from "@/lib/api/taskPlanner/api";
 
 const TASKS_KEY = ["tasks"];
 

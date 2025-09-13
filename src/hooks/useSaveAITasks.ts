@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { saveAITasks } from "@/lib/api/ai/task/ai";
+import { saveAITasks } from "@/lib/api/ai/taskPlanner/ai";
 import { toast } from "@/hooks/use-toast";
 
 export function useSaveAITasks() {

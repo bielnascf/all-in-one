@@ -1,8 +1,8 @@
 // hooks/useAIBatches.ts
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
-import { deleteAIBatch, GeneratedBatch, getAIBatches, saveAIBatch } from "@/lib/api/ai/task/ai";
-import { Task } from "@/interfaces/ITasks";
+import { deleteAIBatch, GeneratedBatch, getAIBatches, saveAIBatch } from "@/lib/api/ai/taskPlanner/ai";
+import { Task } from "@/interfaces/ITaskPlanner";
 
 const BATCHES_KEY = ["ai-batches"];
 
