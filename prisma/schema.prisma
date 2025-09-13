@@ -97,3 +97,42 @@ model AIGeneratedTasksBatch {
 
   @@index([userId])
 }
+
+model Finance {
+  id          String         @id @default(cuid())
+  userId      String
+  amount      Decimal        @db.Decimal(10, 2)
+  title       String
+  description String? 
+  category    FinanceCategory
+  type        FinanceType
+  status      FinanceStatus
+  date        DateTime       @default(now())
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime?      @updatedAt
+
+  @@index([userId])
+}
+
+enum FinanceCategory {
+  Income
+  Expense
+}
+
+enum FinanceType {
+  Income
+  Housing
+  Transportation
+  Food
+  PersonalCare
+  Entertainment
+  Health
+  Shopping
+  Miscellaneous
+}
+
+enum FinanceStatus {
+  Pending
+  Paid
+  Received
+}
